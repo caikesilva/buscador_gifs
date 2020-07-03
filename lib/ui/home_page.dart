@@ -42,26 +42,44 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Padding(
               padding: EdgeInsets.all(15),
-              child: TextField(
-                controller: _controllerInput,
-                decoration: InputDecoration(
-                  labelText: "Pesquise Aqui",
-                  labelStyle: TextStyle(
-                    color: Colors.white,
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    controller: _controllerInput,
+                    decoration: InputDecoration(
+                      labelText: "Pesquise Aqui",
+                      labelStyle: TextStyle(
+                        color: Colors.white,
+                      ),
+                      border: OutlineInputBorder(),
+                    ),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                    ),
+                    
+                    textAlign: TextAlign.center,
+                    onSubmitted: (text) {
+                      setState(() {
+                        _search = text;
+                      });
+                    },
                   ),
-                  border: OutlineInputBorder(),
-                ),
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
-                ),
-                
-                textAlign: TextAlign.center,
-                onSubmitted: (text) {
-                  setState(() {
-                    _search = text;
-                  });
-                },
+                  Padding(padding: EdgeInsets.all(5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(padding: EdgeInsets.all(5)),
+                        RaisedButton(
+                          color: Colors.deepPurple,
+                          onPressed: (){},
+                            child: Text("Filtros", style: TextStyle(fontSize: 18.0, color: Colors.white, backgroundColor: Colors.deepPurple),
+                          ),
+                        ),
+                      ],
+                    ) 
+                  ), 
+                ],
               ),
             ),
             Expanded(
